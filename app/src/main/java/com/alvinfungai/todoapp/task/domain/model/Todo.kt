@@ -11,6 +11,7 @@ import com.alvinfungai.todoapp.ui.theme.Amber700
 import com.alvinfungai.todoapp.ui.theme.BlueGray200
 import com.alvinfungai.todoapp.ui.theme.Green500
 import com.alvinfungai.todoapp.ui.theme.Red500
+import java.lang.Exception
 import java.sql.Timestamp
 
 
@@ -27,3 +28,5 @@ data class Todo(
         val noteFlagColors = listOf(Red500, Amber700, Green500, BlueGray200)
     }
 }
+
+class InvalidTodoException(message: String): Exception(message)

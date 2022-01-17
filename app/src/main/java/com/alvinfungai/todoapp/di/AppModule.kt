@@ -5,8 +5,7 @@ import androidx.room.Room
 import com.alvinfungai.todoapp.task.data.repository.TodoRepositoryImpl
 import com.alvinfungai.todoapp.task.data.source.AppDatabase
 import com.alvinfungai.todoapp.task.domain.repository.TodoRepository
-import com.alvinfungai.todoapp.task.domain.use_case.GetTodos
-import com.alvinfungai.todoapp.task.domain.use_case.TodoUseCase
+import com.alvinfungai.todoapp.task.domain.use_case.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -37,7 +36,10 @@ object AppModule {
     @Singleton
     fun provideTodoUseCase(repository: TodoRepository): TodoUseCase {
         return TodoUseCase(
-            getTodos = GetTodos(repository)
+            getTodos = GetTodos(repository),
+            getTodo = GetTodo(repository),
+            insertTodo = InsertTodo(repository),
+            deleteTodo = DeleteTodo(repository)
         )
     }
 }
