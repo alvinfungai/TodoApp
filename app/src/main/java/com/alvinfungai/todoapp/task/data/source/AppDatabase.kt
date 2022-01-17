@@ -9,4 +9,8 @@ import com.alvinfungai.todoapp.task.domain.model.Todo
 abstract class AppDatabase : RoomDatabase() {
 
     abstract val todoDao: TodoDao
+
+    companion object {
+        const val DATABASE_NAME = "todo_db"
+    }
 }
